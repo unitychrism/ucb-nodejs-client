@@ -1,5 +1,8 @@
-var ucb = require('./index');
+var ucb = require('./index'),
+    config = require('./config');
 
-ucb.client(function(client) {
-    
+ucb.client(config.schemaurl, function(client) {
+    for (var property in client.apis) {
+        console.log('property: ' + property);
+    }
 });

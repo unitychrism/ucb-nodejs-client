@@ -1,13 +1,13 @@
-var Swagger = require('swagger-client'),
-    config = require('./config');
+var Swagger = require('swagger-client');
 
-exports.client = function(callback) {
-    console.log('Loading Unity Cloud Build schema from ' + config.schemaurl);
+exports.client = function(url, callback) {
+    console.log('Loading Unity Cloud Build schema from ' + url);
     new Swagger({
-        url: config.schemaurl,
+        url: url,
         usePromise: true
     })
     .then(function (client) {
+        console.log('Unity Cloud Build client loaded OK.');
         callback(client);
     })
     .catch(function(error) {

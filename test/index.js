@@ -7,14 +7,15 @@ var config = {
     schemaurl: 'https://build-api.cloud.unity3d.com/api/v1/api.json'
 }
 
-describe('#client', function() {
-    var testClient;
-    before(function(done) {
-        ucbclient(config.schemaurl, function(client) {
-            testClient = client;
-            done();
-        });
+var testClient;
+before(function(done) {
+    ucbclient(config.schemaurl, function(client) {
+        testClient = client;
+        done();
     });
+});
+
+describe('#client', function() {
 
     it('is an object', function() {
         expect(testClient).to.be.a('object');
@@ -42,5 +43,16 @@ describe('#client', function() {
 
     it('has shares', function() {
         expect(testClient).to.have.property('shares');
+    });
+
+    it('fails to get self user without token', function(done) {
+        testClient.users.getUserSelf()
+            .then(function(user) {
+
+            })
+            .catch(function(error) {
+                expect(error.status).to.equal(401);
+                done();
+            });
     });
 });

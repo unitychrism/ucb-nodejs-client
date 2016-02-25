@@ -1,9 +1,12 @@
 var Swagger = require('swagger-client');
 
-exports.client = function(url, callback) {
+exports.client = function(url, token, callback) {
     console.log('Loading Unity Cloud Build schema from ' + url);
     new Swagger({
         url: url,
+        authorizations: {
+            easyapi_basic: new client.PasswordAuthorization(token, ''),
+        },
         usePromise: true
     })
     .then(function (client) {

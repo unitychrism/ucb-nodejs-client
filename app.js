@@ -1,5 +1,5 @@
-var Swagger = require('swagger-client');
+var ucb = require('./index');
 
-var client = new Swagger({
-	
+ucb.client(function(client) {
+    
 });

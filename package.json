@@ -19,5 +19,8 @@
     {
       "type": "MIT"
     }
-  ]
+  ],
+  "dependencies": {
+    "swagger-client": "^2.1.11"
+  }
 }

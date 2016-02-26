@@ -4,7 +4,7 @@ This is a test client for the Unity Cloud Build API, that uses swagger-js librar
 
 ## Usage
 
-```
+```javascript
 var ucbclient = require('unitycloudbuild-client').client;
 
 ucbclient(apiUrl, apiKey, function(client) {
